@@ -8,9 +8,6 @@ app.use(cors());
 app.use(express.json())
 app.use(express.static('./public'))
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'..','/public/index.html'))
-})
 app.get('/notes',async (req,res)=>{
     const data= await notesModel.find();
     res.status(200).json(data);
